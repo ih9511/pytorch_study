@@ -12,7 +12,6 @@
     - 텐서 생성 및 조작 (`view()`, `reshape()`, `squeeze()`, `unsqueeze()`)
     - 텐서 연산 (기본 연산, `torch.matmul()`, `torch.mm()`, `torch.einsum()`)
 3. **Autograd & 자동 미분**
-    
     - `torch.autograd`의 원리
     - 그래디언트 계산 (`requires_grad=True`)
     - 역전파(`backward()`)와 `.grad` 활용
@@ -50,44 +49,44 @@
     - `torch.nn.Conv2d`, `torch.nn.MaxPool2d` 이해
     - ResNet, EfficientNet 등 최신 모델 적용
 2. **RNN/LSTM/GRU (자연어 처리 - NLP)**
-- `torch.nn.RNN`, `torch.nn.LSTM`, `torch.nn.GRU` 이해
-- 텍스트 데이터 전처리 및 임베딩 (`torch.nn.Embedding`)
-- Transformer 개념 및 PyTorch 구현
+    - `torch.nn.RNN`, `torch.nn.LSTM`, `torch.nn.GRU` 이해
+    - 텍스트 데이터 전처리 및 임베딩 (`torch.nn.Embedding`)
+    - Transformer 개념 및 PyTorch 구현
 1. **PyTorch에서 Transformer 활용 (BERT, GPT)**
-- `torch.nn.Transformer` 기반 모델 구축
-- Hugging Face `transformers` 라이브러리 활용
-- 미세 조정(Fine-tuning) 및 사전 학습 모델 사용
+    - `torch.nn.Transformer` 기반 모델 구축
+    - Hugging Face `transformers` 라이브러리 활용
+    - 미세 조정(Fine-tuning) 및 사전 학습 모델 사용
 
 ---
 
 ### **📌 4) PyTorch 최신 기능 및 최적화**
 
 1. **PyTorch 2.x의 `torch.compile()` 활용**
-- PyTorch 2.0의 동적 그래프 컴파일 기능
-- `torch.compile()`을 이용한 모델 최적화
+    - PyTorch 2.0의 동적 그래프 컴파일 기능
+    - `torch.compile()`을 이용한 모델 최적화
 1. **PyTorch Lightning으로 간편하게 모델 관리**
-- `pytorch_lightning`을 활용한 코드 간소화
-- 자동 로그 저장 및 체크포인트 관리
+    - `pytorch_lightning`을 활용한 코드 간소화
+    - 자동 로그 저장 및 체크포인트 관리
 1. **ONNX & TorchScript (PyTorch 모델 배포)**
-- 모델을 ONNX로 변환 (`torch.onnx.export()`)
-- TorchScript (`torch.jit.trace()`)를 활용한 최적화
+    - 모델을 ONNX로 변환 (`torch.onnx.export()`)
+    - TorchScript (`torch.jit.trace()`)를 활용한 최적화
 1. **PyTorch를 활용한 분산 학습 & 대형 모델 훈련**
-- `torch.distributed`를 활용한 멀티 GPU 학습
-- DeepSpeed와 Fully Sharded Data Parallel (FSDP) 기법 적용
+    - `torch.distributed`를 활용한 멀티 GPU 학습
+    - DeepSpeed와 Fully Sharded Data Parallel (FSDP) 기법 적용
 
 ---
 
 ### **📌 5) 프로젝트 실습**
 
 1. **프로젝트 1 - 이미지 분류 (ResNet)**
-- CIFAR-10 데이터셋을 이용한 ResNet 학습
-- 데이터 증강 및 하이퍼파라미터 튜닝
+    - CIFAR-10 데이터셋을 이용한 ResNet 학습
+    - 데이터 증강 및 하이퍼파라미터 튜닝
 1. **프로젝트 2 - 자연어 처리 (Transformer 기반 번역 모델)**
-- 번역 데이터셋을 활용한 Transformer 모델 구현
-- Hugging Face 모델을 활용한 파인튜닝
+    - 번역 데이터셋을 활용한 Transformer 모델 구현
+    - Hugging Face 모델을 활용한 파인튜닝
 1. **프로젝트 3 - GAN (생성 모델)**
-- DCGAN을 활용한 이미지 생성
-- Stable Diffusion 기반 텍스트-이미지 변환 실습
+    - DCGAN을 활용한 이미지 생성
+    - Stable Diffusion 기반 텍스트-이미지 변환 실습
 
 ---
 
