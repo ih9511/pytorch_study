@@ -73,3 +73,93 @@ y_detached = y.detach()
 print(y.requires_grad) # True
 print(y_detached.requires_grad) # False
 ```
+
+# Autograd 예제
+
+## 1D Tensor에 대한 그래디언트 계산
+
+```python
+# 데이터 샘플(x값)과 실제 타겟(y값)
+x = torch.tensor(1.0, requires_grad=True)
+y_true = torch.tensor(3.0)
+
+# 가중치 (학습해야 하는 값)
+w = torch.tensor(2.0, requires_grad=True)
+
+# 선형 모델: y_pred = w * x
+y_pred = w * x
+
+# 손실 함수: MSE Loss = (y_pred - y_true) ^ 2
+loss = (y_pred - y_true) ** 2
+
+# 그래디언트 계산 (역전파)
+loss.backward()
+
+# 가중치 w에 대한 그래디언트 출력
+print(f"w에 대한 그래디언트: {w.grad}")
+```
+
+## 2D Tensor에 대한 그래디언트 계산
+
+1. 데이터 및 모델 초기화
+
+```python
+import torch
+
+# 2차원 입력 데이터(2개의 샘플, 3개의 특성)
+X = torch.tensor([[1.0, 2.0, 3.0],[4.0, 5.0, 6.0]], requires_grad=True)
+									
+# 실제 값 (타겟 값) -> 2개 샘플에 대한 정답 레이블
+y_true = torch.tensor([[10.0], [20.0]])
+
+# 학습할 가중치 (3개의 특성을 가지므로 (3x1) 형태)
+W = torch.tensor([[0.1], [0.2], [0.3]], requires_grad=True)
+
+# Bias
+b = torch.tensor(0.5, requires_grad=True)
+```
+
+1. 모델 예측(순전파)
+
+```python
+# 선형 모델 계산 (y_pred = WX + b)
+y_pred = X @ W + b
+print(f"예측값: {y_pred}")
+```
+
+- `X @ W`: (2x3) . (3x1) → (2x1)  텐서가 됨
+- `+ b`: 브로드캐스팅(broadcasting)으로 편향 추가됨
+    - Broadcasting:
+1. 손실 함수 계산 (MSE)
+
+```python
+# MSE 손실 함수
+loss = torch.mean((y_pred - y_true) ** 2)
+print(f"손실값: {loss.item()}")
+```
+
+1. 역전파(Backpropagation) 수행
+
+```python
+# 그래디언트 계산 (역전파)
+loss.backward()
+
+# 가중치 W의 그래디언트 출력
+print(f"W에 대한 그래디언트: {W.grad}")
+
+# 편향 b의 그래디언트 출력
+print(f"b에 대한 그래디언트: {b.grad}")
+```
+
+## Autograd를 활용한 그래디언트 계산 원리
+
+수식으로 표현하면:
+
+$$
+loss=\frac{1}{2}\sum(y_{pred} - y_{true})^2
+$$
+
+역전파를 수행하면, 손실 함수가 각 가중치 $W$와 편향 $b$에 대해 미분 됩니다.
+
+- `W.grad`는 `d(loss) / d(W)`를 저장
+- `b.grad`는 `d(loss) / d(b)`를 저장
